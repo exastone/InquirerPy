@@ -5,10 +5,10 @@ from typing import Any, Callable, List, Optional
 from prompt_toolkit.filters.base import Condition
 from prompt_toolkit.keys import Keys
 
-from InquirerPy.base.complex import BaseComplexPrompt
-from InquirerPy.base.control import InquirerPyUIListControl
-from InquirerPy.separator import Separator
-from InquirerPy.utils import (
+from term_mark.InquirerPy.InquirerPy.base.complex import BaseComplexPrompt
+from term_mark.InquirerPy.InquirerPy.base.control import InquirerPyUIListControl
+from term_mark.InquirerPy.InquirerPy.separator import Separator
+from term_mark.InquirerPy.InquirerPy.utils import (
     InquirerPyKeybindings,
     InquirerPyMessage,
     InquirerPySessionResult,
@@ -30,27 +30,27 @@ class BaseListPrompt(BaseComplexPrompt):
     """
 
     def __init__(
-        self,
-        message: InquirerPyMessage,
-        style: Optional[InquirerPyStyle] = None,
-        vi_mode: bool = False,
-        qmark: str = "?",
-        amark: str = "?",
-        instruction: str = "",
-        long_instruction: str = "",
-        border: bool = False,
-        transformer: Optional[Callable[[Any], Any]] = None,
-        filter: Optional[Callable[[Any], Any]] = None,
-        validate: Optional[InquirerPyValidate] = None,
-        invalid_message: str = "Invalid input",
-        multiselect: bool = False,
-        keybindings: Optional[InquirerPyKeybindings] = None,
-        cycle: bool = True,
-        wrap_lines: bool = True,
-        raise_keyboard_interrupt: bool = True,
-        mandatory: bool = True,
-        mandatory_message: str = "Mandatory prompt",
-        session_result: Optional[InquirerPySessionResult] = None,
+            self,
+            message: InquirerPyMessage,
+            style: Optional[InquirerPyStyle] = None,
+            vi_mode: bool = False,
+            qmark: str = "?",
+            amark: str = "?",
+            instruction: str = "",
+            long_instruction: str = "",
+            border: bool = False,
+            transformer: Optional[Callable[[Any], Any]] = None,
+            filter: Optional[Callable[[Any], Any]] = None,
+            validate: Optional[InquirerPyValidate] = None,
+            invalid_message: str = "Invalid input",
+            multiselect: bool = False,
+            keybindings: Optional[InquirerPyKeybindings] = None,
+            cycle: bool = True,
+            wrap_lines: bool = True,
+            raise_keyboard_interrupt: bool = True,
+            mandatory: bool = True,
+            mandatory_message: str = "Mandatory prompt",
+            session_result: Optional[InquirerPySessionResult] = None,
     ) -> None:
         super().__init__(
             message=message,
@@ -194,17 +194,17 @@ class BaseListPrompt(BaseComplexPrompt):
         """
         if self._cycle:
             self.content_control.selected_choice_index = (
-                self.content_control.selected_choice_index + 1
-            ) % self.content_control.choice_count
+                                                                 self.content_control.selected_choice_index + 1
+                                                         ) % self.content_control.choice_count
             return False
         else:
             self.content_control.selected_choice_index += 1
             if (
-                self.content_control.selected_choice_index
-                >= self.content_control.choice_count
+                    self.content_control.selected_choice_index
+                    >= self.content_control.choice_count
             ):
                 self.content_control.selected_choice_index = (
-                    self.content_control.choice_count - 1
+                        self.content_control.choice_count - 1
                 )
                 return True
             return False
@@ -217,8 +217,8 @@ class BaseListPrompt(BaseComplexPrompt):
         """
         if self._cycle:
             self.content_control.selected_choice_index = (
-                self.content_control.selected_choice_index - 1
-            ) % self.content_control.choice_count
+                                                                 self.content_control.selected_choice_index - 1
+                                                         ) % self.content_control.choice_count
             return False
         else:
             self.content_control.selected_choice_index -= 1

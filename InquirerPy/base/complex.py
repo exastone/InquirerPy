@@ -9,9 +9,9 @@ from prompt_toolkit.filters.base import Condition, FilterOrBool
 from prompt_toolkit.key_binding.key_bindings import KeyHandlerCallable
 from prompt_toolkit.keys import Keys
 
-from InquirerPy.base.simple import BaseSimplePrompt
-from InquirerPy.enum import INQUIRERPY_KEYBOARD_INTERRUPT
-from InquirerPy.utils import (
+from term_mark.InquirerPy.InquirerPy.base.simple import BaseSimplePrompt
+from term_mark.InquirerPy.InquirerPy.enum import INQUIRERPY_KEYBOARD_INTERRUPT
+from term_mark.InquirerPy.InquirerPy.utils import (
     InquirerPySessionResult,
     InquirerPyStyle,
     InquirerPyValidate,
@@ -51,24 +51,24 @@ class BaseComplexPrompt(BaseSimplePrompt):
     """
 
     def __init__(
-        self,
-        message: Union[str, Callable[[InquirerPySessionResult], str]],
-        style: Optional[InquirerPyStyle] = None,
-        border: bool = False,
-        vi_mode: bool = False,
-        qmark: str = "?",
-        amark: str = "?",
-        instruction: str = "",
-        long_instruction: str = "",
-        transformer: Optional[Callable[[Any], Any]] = None,
-        filter: Optional[Callable[[Any], Any]] = None,
-        validate: Optional[InquirerPyValidate] = None,
-        invalid_message: str = "Invalid input",
-        wrap_lines: bool = True,
-        raise_keyboard_interrupt: bool = True,
-        mandatory: bool = True,
-        mandatory_message: str = "Mandatory prompt",
-        session_result: Optional[InquirerPySessionResult] = None,
+            self,
+            message: Union[str, Callable[[InquirerPySessionResult], str]],
+            style: Optional[InquirerPyStyle] = None,
+            border: bool = False,
+            vi_mode: bool = False,
+            qmark: str = "?",
+            amark: str = "?",
+            instruction: str = "",
+            long_instruction: str = "",
+            transformer: Optional[Callable[[Any], Any]] = None,
+            filter: Optional[Callable[[Any], Any]] = None,
+            validate: Optional[InquirerPyValidate] = None,
+            invalid_message: str = "Invalid input",
+            wrap_lines: bool = True,
+            raise_keyboard_interrupt: bool = True,
+            mandatory: bool = True,
+            mandatory_message: str = "Mandatory prompt",
+            session_result: Optional[InquirerPySessionResult] = None,
     ) -> None:
         super().__init__(
             message=message,
@@ -116,7 +116,7 @@ class BaseComplexPrompt(BaseSimplePrompt):
         self._application.invalidate()
 
     def register_kb(
-        self, *keys: Union[Keys, str], filter: FilterOrBool = True
+            self, *keys: Union[Keys, str], filter: FilterOrBool = True
     ) -> Callable[[KeyHandlerCallable], KeyHandlerCallable]:
         """Decorate keybinding registration function.
 

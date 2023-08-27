@@ -33,15 +33,15 @@ from prompt_toolkit.lexers.base import SimpleLexer
 from prompt_toolkit.validation import ValidationError
 from prompt_toolkit.widgets.base import Frame
 
-from InquirerPy.base import FakeDocument, InquirerPyUIListControl
-from InquirerPy.base.list import BaseListPrompt
-from InquirerPy.containers.instruction import InstructionWindow
-from InquirerPy.containers.message import MessageWindow
-from InquirerPy.containers.validation import ValidationFloat
-from InquirerPy.enum import INQUIRERPY_POINTER_SEQUENCE
-from InquirerPy.exceptions import InvalidArgument
-from InquirerPy.separator import Separator
-from InquirerPy.utils import (
+from term_mark.InquirerPy.InquirerPy.base import FakeDocument, InquirerPyUIListControl
+from term_mark.InquirerPy.InquirerPy.base.list import BaseListPrompt
+from term_mark.InquirerPy.InquirerPy.containers.instruction import InstructionWindow
+from term_mark.InquirerPy.InquirerPy.containers.message import MessageWindow
+from term_mark.InquirerPy.InquirerPy.containers.validation import ValidationFloat
+from term_mark.InquirerPy.InquirerPy.enum import INQUIRERPY_POINTER_SEQUENCE
+from term_mark.InquirerPy.InquirerPy.exceptions import InvalidArgument
+from term_mark.InquirerPy.InquirerPy.separator import Separator
+from term_mark.InquirerPy.InquirerPy.utils import (
     InquirerPyDefault,
     InquirerPyKeybindings,
     InquirerPyListChoices,
@@ -68,16 +68,16 @@ class InquirerPyFuzzyControl(InquirerPyUIListControl):
     """
 
     def __init__(
-        self,
-        choices: InquirerPyListChoices,
-        pointer: str,
-        marker: str,
-        current_text: Callable[[], str],
-        max_lines: int,
-        session_result: Optional[InquirerPySessionResult],
-        multiselect: bool,
-        marker_pl: str,
-        match_exact: bool,
+            self,
+            choices: InquirerPyListChoices,
+            pointer: str,
+            marker: str,
+            current_text: Callable[[], str],
+            max_lines: int,
+            session_result: Optional[InquirerPySessionResult],
+            multiselect: bool,
+            marker_pl: str,
+            match_exact: bool,
     ) -> None:
         self._pointer = pointer
         self._marker = marker
@@ -333,38 +333,38 @@ class FuzzyPrompt(BaseListPrompt):
     """
 
     def __init__(
-        self,
-        message: InquirerPyMessage,
-        choices: InquirerPyListChoices,
-        default: InquirerPyDefault = "",
-        pointer: str = INQUIRERPY_POINTER_SEQUENCE,
-        style: Optional[InquirerPyStyle] = None,
-        vi_mode: bool = False,
-        qmark: str = "?",
-        amark: str = "?",
-        transformer: Optional[Callable[[Any], Any]] = None,
-        filter: Optional[Callable[[Any], Any]] = None,
-        instruction: str = "",
-        long_instruction: str = "",
-        multiselect: bool = False,
-        prompt: str = INQUIRERPY_POINTER_SEQUENCE,
-        marker: str = INQUIRERPY_POINTER_SEQUENCE,
-        marker_pl: str = " ",
-        border: bool = False,
-        info: bool = True,
-        match_exact: bool = False,
-        exact_symbol: str = " E",
-        height: Optional[Union[str, int]] = None,
-        max_height: Optional[Union[str, int]] = None,
-        validate: Optional[InquirerPyValidate] = None,
-        invalid_message: str = "Invalid input",
-        keybindings: Optional[InquirerPyKeybindings] = None,
-        cycle: bool = True,
-        wrap_lines: bool = True,
-        raise_keyboard_interrupt: bool = True,
-        mandatory: bool = True,
-        mandatory_message: str = "Mandatory prompt",
-        session_result: Optional[InquirerPySessionResult] = None,
+            self,
+            message: InquirerPyMessage,
+            choices: InquirerPyListChoices,
+            default: InquirerPyDefault = "",
+            pointer: str = INQUIRERPY_POINTER_SEQUENCE,
+            style: Optional[InquirerPyStyle] = None,
+            vi_mode: bool = False,
+            qmark: str = "?",
+            amark: str = "?",
+            transformer: Optional[Callable[[Any], Any]] = None,
+            filter: Optional[Callable[[Any], Any]] = None,
+            instruction: str = "",
+            long_instruction: str = "",
+            multiselect: bool = False,
+            prompt: str = INQUIRERPY_POINTER_SEQUENCE,
+            marker: str = INQUIRERPY_POINTER_SEQUENCE,
+            marker_pl: str = " ",
+            border: bool = False,
+            info: bool = True,
+            match_exact: bool = False,
+            exact_symbol: str = " E",
+            height: Optional[Union[str, int]] = None,
+            max_height: Optional[Union[str, int]] = None,
+            validate: Optional[InquirerPyValidate] = None,
+            invalid_message: str = "Invalid input",
+            keybindings: Optional[InquirerPyKeybindings] = None,
+            cycle: bool = True,
+            wrap_lines: bool = True,
+            raise_keyboard_interrupt: bool = True,
+            mandatory: bool = True,
+            mandatory_message: str = "Mandatory prompt",
+            session_result: Optional[InquirerPySessionResult] = None,
     ) -> None:
         if not keybindings:
             keybindings = {}

@@ -3,15 +3,15 @@ from typing import Any, Callable, List, Optional, Tuple, Union
 
 from prompt_toolkit.validation import ValidationError
 
-from InquirerPy.base import FakeDocument, InquirerPyUIListControl
-from InquirerPy.enum import (
+from term_mark.InquirerPy.InquirerPy.base import FakeDocument, InquirerPyUIListControl
+from term_mark.InquirerPy.InquirerPy.enum import (
     INQUIRERPY_EMPTY_CIRCLE_SEQUENCE,
     INQUIRERPY_FILL_CIRCLE_SEQUENCE,
     INQUIRERPY_POINTER_SEQUENCE,
 )
-from InquirerPy.prompts.list import ListPrompt
-from InquirerPy.separator import Separator
-from InquirerPy.utils import (
+from term_mark.InquirerPy.InquirerPy.prompts.list import ListPrompt
+from term_mark.InquirerPy.InquirerPy.separator import Separator
+from term_mark.InquirerPy.InquirerPy.utils import (
     InquirerPyKeybindings,
     InquirerPyListChoices,
     InquirerPyMessage,
@@ -30,13 +30,13 @@ class InquirerPyCheckboxControl(InquirerPyUIListControl):
     """
 
     def __init__(
-        self,
-        choices: InquirerPyListChoices,
-        default: Any,
-        pointer: str,
-        enabled_symbol: str,
-        disabled_symbol: str,
-        session_result: Optional[InquirerPySessionResult],
+            self,
+            choices: InquirerPyListChoices,
+            default: Any,
+            pointer: str,
+            enabled_symbol: str,
+            disabled_symbol: str,
+            session_result: Optional[InquirerPySessionResult],
     ) -> None:
         """Initialise required attributes and call base class."""
         self._pointer = pointer
@@ -165,34 +165,34 @@ class CheckboxPrompt(ListPrompt):
     """
 
     def __init__(
-        self,
-        message: InquirerPyMessage,
-        choices: InquirerPyListChoices,
-        default: Any = None,
-        style: Optional[InquirerPyStyle] = None,
-        vi_mode: bool = False,
-        qmark: str = "?",
-        amark: str = "?",
-        pointer: str = INQUIRERPY_POINTER_SEQUENCE,
-        enabled_symbol: str = INQUIRERPY_FILL_CIRCLE_SEQUENCE,
-        disabled_symbol: str = INQUIRERPY_EMPTY_CIRCLE_SEQUENCE,
-        border: bool = False,
-        instruction: str = "",
-        long_instruction: str = "",
-        transformer: Optional[Callable[[Any], Any]] = None,
-        filter: Optional[Callable[[Any], Any]] = None,
-        height: Optional[Union[int, str]] = None,
-        max_height: Optional[Union[int, str]] = None,
-        validate: Optional[InquirerPyValidate] = None,
-        invalid_message: str = "Invalid input",
-        keybindings: Optional[InquirerPyKeybindings] = None,
-        show_cursor: bool = True,
-        cycle: bool = True,
-        wrap_lines: bool = True,
-        raise_keyboard_interrupt: bool = True,
-        mandatory: bool = True,
-        mandatory_message: str = "Mandatory prompt",
-        session_result: Optional[InquirerPySessionResult] = None,
+            self,
+            message: InquirerPyMessage,
+            choices: InquirerPyListChoices,
+            default: Any = None,
+            style: Optional[InquirerPyStyle] = None,
+            vi_mode: bool = False,
+            qmark: str = "?",
+            amark: str = "?",
+            pointer: str = INQUIRERPY_POINTER_SEQUENCE,
+            enabled_symbol: str = INQUIRERPY_FILL_CIRCLE_SEQUENCE,
+            disabled_symbol: str = INQUIRERPY_EMPTY_CIRCLE_SEQUENCE,
+            border: bool = False,
+            instruction: str = "",
+            long_instruction: str = "",
+            transformer: Optional[Callable[[Any], Any]] = None,
+            filter: Optional[Callable[[Any], Any]] = None,
+            height: Optional[Union[int, str]] = None,
+            max_height: Optional[Union[int, str]] = None,
+            validate: Optional[InquirerPyValidate] = None,
+            invalid_message: str = "Invalid input",
+            keybindings: Optional[InquirerPyKeybindings] = None,
+            show_cursor: bool = True,
+            cycle: bool = True,
+            wrap_lines: bool = True,
+            raise_keyboard_interrupt: bool = True,
+            mandatory: bool = True,
+            mandatory_message: str = "Mandatory prompt",
+            session_result: Optional[InquirerPySessionResult] = None,
     ) -> None:
         self.content_control = InquirerPyCheckboxControl(
             choices=choices,

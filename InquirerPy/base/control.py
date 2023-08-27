@@ -5,9 +5,9 @@ from typing import Any, Callable, Dict, List, Optional, Tuple, cast
 
 from prompt_toolkit.layout.controls import FormattedTextControl
 
-from InquirerPy.exceptions import InvalidArgument, RequiredKeyNotFound
-from InquirerPy.separator import Separator
-from InquirerPy.utils import InquirerPyListChoices, InquirerPySessionResult
+from term_mark.InquirerPy.InquirerPy.exceptions import InvalidArgument, RequiredKeyNotFound
+from term_mark.InquirerPy.InquirerPy.separator import Separator
+from term_mark.InquirerPy.InquirerPy.utils import InquirerPyListChoices, InquirerPySessionResult
 
 __all__ = ["Choice", "InquirerPyUIListControl"]
 
@@ -52,11 +52,11 @@ class InquirerPyUIListControl(FormattedTextControl):
     """
 
     def __init__(
-        self,
-        choices: InquirerPyListChoices,
-        default: Any = None,
-        multiselect: bool = False,
-        session_result: Optional[InquirerPySessionResult] = None,
+            self,
+            choices: InquirerPyListChoices,
+            default: Any = None,
+            multiselect: bool = False,
+            session_result: Optional[InquirerPySessionResult] = None,
     ) -> None:
         self._session_result = session_result or {}
         self._selected_choice_index: int = 0
@@ -108,8 +108,8 @@ class InquirerPyUIListControl(FormattedTextControl):
                 elif isinstance(choice, Separator):
                     if self.selected_choice_index == index:
                         self.selected_choice_index = (
-                            self.selected_choice_index + 1
-                        ) % len(choices)
+                                                             self.selected_choice_index + 1
+                                                     ) % len(choices)
                     processed_choices.append(
                         {"name": str(choice), "value": choice, "enabled": False}
                     )

@@ -4,18 +4,11 @@ A `PyInquirer <https://github.com/CITGuru/PyInquirer>`_ compatible entrypoint :f
 """
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from InquirerPy.exceptions import InvalidArgument, RequiredKeyNotFound
-from InquirerPy.prompts.checkbox import CheckboxPrompt
-from InquirerPy.prompts.confirm import ConfirmPrompt
-from InquirerPy.prompts.expand import ExpandPrompt
-from InquirerPy.prompts.filepath import FilePathPrompt
-from InquirerPy.prompts.fuzzy import FuzzyPrompt
-from InquirerPy.prompts.input import InputPrompt
-from InquirerPy.prompts.list import ListPrompt
-from InquirerPy.prompts.number import NumberPrompt
-from InquirerPy.prompts.rawlist import RawlistPrompt
-from InquirerPy.prompts.secret import SecretPrompt
-from InquirerPy.utils import (
+from term_mark.InquirerPy.InquirerPy.exceptions import InvalidArgument, RequiredKeyNotFound
+from term_mark.InquirerPy.InquirerPy.prompts.checkbox import CheckboxPrompt
+from term_mark.InquirerPy.InquirerPy.prompts.fuzzy import FuzzyPrompt
+from term_mark.InquirerPy.InquirerPy.prompts.list import ListPrompt
+from term_mark.InquirerPy.InquirerPy.utils import (
     InquirerPyKeybindings,
     InquirerPyQuestions,
     InquirerPySessionResult,
@@ -25,16 +18,9 @@ from InquirerPy.utils import (
 __all__ = ["prompt", "prompt_async"]
 
 question_mapping = {
-    "confirm": ConfirmPrompt,
-    "filepath": FilePathPrompt,
-    "password": SecretPrompt,
-    "input": InputPrompt,
     "list": ListPrompt,
     "checkbox": CheckboxPrompt,
-    "rawlist": RawlistPrompt,
-    "expand": ExpandPrompt,
     "fuzzy": FuzzyPrompt,
-    "number": NumberPrompt,
 }
 
 
@@ -57,7 +43,7 @@ def _get_questions(questions: InquirerPyQuestions) -> List[Dict[str, Any]]:
 
 
 def _get_question(
-    original_question: Dict[str, Any], result: InquirerPySessionResult, index: int
+        original_question: Dict[str, Any], result: InquirerPySessionResult, index: int
 ) -> Tuple[Optional[Dict[str, Any]], str, Union[str, int], str]:
     """Get information from individual question.
 
@@ -82,12 +68,12 @@ def _get_question(
 
 
 async def prompt_async(
-    questions: InquirerPyQuestions,
-    style: Optional[Dict[str, str]] = None,
-    vi_mode: bool = False,
-    raise_keyboard_interrupt: bool = True,
-    keybindings: Optional[InquirerPyKeybindings] = None,
-    style_override: bool = True,
+        questions: InquirerPyQuestions,
+        style: Optional[Dict[str, str]] = None,
+        vi_mode: bool = False,
+        raise_keyboard_interrupt: bool = True,
+        keybindings: Optional[InquirerPyKeybindings] = None,
+        style_override: bool = True,
 ) -> InquirerPySessionResult:
     """Classic syntax entrypoint to create a prompt session via asynchronous method.
 
@@ -125,12 +111,12 @@ async def prompt_async(
 
 
 def prompt(
-    questions: InquirerPyQuestions,
-    style: Optional[Dict[str, str]] = None,
-    vi_mode: bool = False,
-    raise_keyboard_interrupt: bool = True,
-    keybindings: Optional[InquirerPyKeybindings] = None,
-    style_override: bool = True,
+        questions: InquirerPyQuestions,
+        style: Optional[Dict[str, str]] = None,
+        vi_mode: bool = False,
+        raise_keyboard_interrupt: bool = True,
+        keybindings: Optional[InquirerPyKeybindings] = None,
+        style_override: bool = True,
 ) -> InquirerPySessionResult:
     """Classic syntax entrypoint to create a prompt session.
 

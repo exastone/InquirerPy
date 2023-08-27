@@ -1,5 +1,0 @@
-Sphinx
-furo
-myst-parser
-sphinx-autobuild
-sphinx-copybutton

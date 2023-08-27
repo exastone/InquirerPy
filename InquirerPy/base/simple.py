@@ -21,9 +21,9 @@ from prompt_toolkit.keys import Keys
 from prompt_toolkit.styles.style import Style
 from prompt_toolkit.validation import Validator
 
-from InquirerPy.enum import INQUIRERPY_KEYBOARD_INTERRUPT
-from InquirerPy.exceptions import RequiredKeyNotFound
-from InquirerPy.utils import (
+from term_mark.InquirerPy.InquirerPy.enum import INQUIRERPY_KEYBOARD_INTERRUPT
+from term_mark.InquirerPy.InquirerPy.exceptions import RequiredKeyNotFound
+from term_mark.InquirerPy.InquirerPy.utils import (
     InquirerPyMessage,
     InquirerPySessionResult,
     InquirerPyStyle,
@@ -51,23 +51,23 @@ class BaseSimplePrompt(ABC):
     """
 
     def __init__(
-        self,
-        message: InquirerPyMessage,
-        style: Optional[InquirerPyStyle] = None,
-        vi_mode: bool = False,
-        qmark: str = "?",
-        amark: str = "?",
-        instruction: str = "",
-        validate: Optional[InquirerPyValidate] = None,
-        invalid_message: str = "Invalid input",
-        transformer: Optional[Callable[[Any], Any]] = None,
-        filter: Optional[Callable[[Any], Any]] = None,
-        default: Any = "",
-        wrap_lines: bool = True,
-        raise_keyboard_interrupt: bool = True,
-        mandatory: bool = True,
-        mandatory_message: str = "Mandatory prompt",
-        session_result: Optional[InquirerPySessionResult] = None,
+            self,
+            message: InquirerPyMessage,
+            style: Optional[InquirerPyStyle] = None,
+            vi_mode: bool = False,
+            qmark: str = "?",
+            amark: str = "?",
+            instruction: str = "",
+            validate: Optional[InquirerPyValidate] = None,
+            invalid_message: str = "Invalid input",
+            transformer: Optional[Callable[[Any], Any]] = None,
+            filter: Optional[Callable[[Any], Any]] = None,
+            default: Any = "",
+            wrap_lines: bool = True,
+            raise_keyboard_interrupt: bool = True,
+            mandatory: bool = True,
+            mandatory_message: str = "Mandatory prompt",
+            session_result: Optional[InquirerPySessionResult] = None,
     ) -> None:
         self._mandatory = mandatory
         self._mandatory_message = mandatory_message
@@ -200,7 +200,7 @@ class BaseSimplePrompt(ABC):
         self._status = value
 
     def register_kb(
-        self, *keys: Union[Keys, str], filter: FilterOrBool = True, **kwargs
+            self, *keys: Union[Keys, str], filter: FilterOrBool = True, **kwargs
     ) -> Callable[[KeyHandlerCallable], KeyHandlerCallable]:
         """Keybinding registration decorator.
 
@@ -245,7 +245,7 @@ class BaseSimplePrompt(ABC):
 
     @abstractmethod
     def _get_prompt_message(
-        self, pre_answer: Tuple[str, str], post_answer: Tuple[str, str]
+            self, pre_answer: Tuple[str, str], post_answer: Tuple[str, str]
     ) -> List[Tuple[str, str]]:
         """Get the question message in formatted text form to display in the prompt.
 
